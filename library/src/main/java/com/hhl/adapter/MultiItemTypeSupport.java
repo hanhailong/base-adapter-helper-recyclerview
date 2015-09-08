@@ -1,4 +1,4 @@
-package com.hhl.library;
+package com.hhl.adapter;
 
 /**
  * Created by HanHailong on 15/9/6.

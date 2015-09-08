@@ -1,4 +1,4 @@
-package com.hhl.library;
+package com.hhl.adapter;
 
 import android.content.Context;
 import android.support.annotation.LayoutRes;

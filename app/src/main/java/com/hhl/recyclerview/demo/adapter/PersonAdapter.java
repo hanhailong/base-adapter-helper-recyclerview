@@ -21,6 +21,15 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.ViewHolder
 
     private List<Person> dataList = new ArrayList<>();
 
+    /**
+     * @param list
+     */
+    public void addAll(List<Person> list) {
+        if (list == null) return;
+        dataList.addAll(list);
+        notifyDataSetChanged();
+    }
+
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.single_item, parent, false);

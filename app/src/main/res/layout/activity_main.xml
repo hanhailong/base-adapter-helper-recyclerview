@@ -13,6 +13,12 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="normalOnClick"
+        android:text="普通Adapter" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:onClick="singleOnClick"
         android:text="单一类型的Item" />
 

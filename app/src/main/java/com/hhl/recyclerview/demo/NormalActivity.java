@@ -1,51 +1,39 @@
 package com.hhl.recyclerview.demo;
 
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
 import android.view.MenuItem;
 
-import com.hhl.adapter.BaseAdapterHelper;
-import com.hhl.adapter.QuickAdapter;
+import com.hhl.recyclerview.demo.adapter.PersonAdapter;
 import com.hhl.recyclerview.demo.entity.Person;
-import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by HanHailong on 15/9/7.
- */
-public class SingleItemActivity extends AppCompatActivity {
+public class NormalActivity extends AppCompatActivity {
 
-    private QuickAdapter<Person> mQuickAdapter;
+    private PersonAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_single);
-        getSupportActionBar().setTitle("单一类型的Item");
+        setContentView(R.layout.activity_normal);
+
+        getSupportActionBar().setTitle("普通Adapter");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
-        mQuickAdapter = new QuickAdapter<Person>(this, R.layout.single_item) {
-            @Override
-            protected void convert(BaseAdapterHelper helper, Person item) {
-                helper.setText(R.id.tv_username, item.getUsername())
-                        .setText(R.id.tv_age, item.getAge() + "岁")
-                        .setText(R.id.tv_desc, item.getDesc());
-                ImageLoader.getInstance().displayImage(item.getAvatar(), helper.getImageView(R.id.iv_avatar));
-            }
-        };
+        mAdapter = new PersonAdapter();
 
-        recyclerView.setAdapter(mQuickAdapter);
+        recyclerView.setAdapter(mAdapter);
 
         initData();
     }
-
 
     /**
      * 初始化数据
@@ -68,16 +56,33 @@ public class SingleItemActivity extends AppCompatActivity {
             }
             list.add(person);
         }
-        mQuickAdapter.addAll(list);
+        mAdapter.addAll(list);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_normal, menu);
+        return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
+        }
+
         if (item.getItemId() == android.R.id.home) {
             finish();
             return true;
         }
+
         return super.onOptionsItemSelected(item);
     }
-
 }

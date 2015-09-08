@@ -8,9 +8,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import com.hhl.library.BaseAdapterHelper;
-import com.hhl.library.MultiItemTypeSupport;
-import com.hhl.library.QuickAdapter;
+import com.hhl.adapter.BaseAdapterHelper;
+import com.hhl.adapter.MultiItemTypeSupport;
+import com.hhl.adapter.QuickAdapter;
 import com.hhl.recyclerview.demo.entity.News;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
