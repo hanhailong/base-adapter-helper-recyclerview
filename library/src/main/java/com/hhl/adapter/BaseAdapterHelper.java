@@ -43,7 +43,7 @@ public class BaseAdapterHelper extends RecyclerView.ViewHolder {
 
     /**
      * This method allows you to retrieve a view and perform custom
-     * operations on it, not covered by the BaseAdapterHelper.<br/>
+     * operations on it, not covered by the BaseAdapterHelper.
      * If you think it's a common use case, please consider creating
      * a new issue at https://github.com/JoanZapata/base-adapter-helper/issues.
      *

@@ -1,7 +1,6 @@
 package com.hhl.adapter;
 
 import android.content.Context;
-import android.support.annotation.LayoutRes;
 
 import java.util.List;
 
@@ -17,7 +16,7 @@ public abstract class QuickAdapter<T> extends BaseQuickAdapter<T, BaseAdapterHel
      * @param context     The context.
      * @param layoutResId The layout resource id of each item.
      */
-    public QuickAdapter(Context context, @LayoutRes int layoutResId) {
+    public QuickAdapter(Context context, int layoutResId) {
         super(context, layoutResId);
     }
 
@@ -29,7 +28,7 @@ public abstract class QuickAdapter<T> extends BaseQuickAdapter<T, BaseAdapterHel
      * @param layoutResId The layout resource id of each item.
      * @param data        A new list is created out of this one to avoid mutable list
      */
-    public QuickAdapter(Context context, @LayoutRes int layoutResId, List<T> data) {
+    public QuickAdapter(Context context, int layoutResId, List<T> data) {
         super(context, layoutResId, data);
     }
 
